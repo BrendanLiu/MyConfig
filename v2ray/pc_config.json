@@ -1,57 +1,57 @@
 {
     "inbound": {
-        "port": 1086, 
-        "listen": "127.0.0.1", 
-        "protocol": "socks", 
+        "port": 1086,
+        "listen": "127.0.0.1",
+        "protocol": "socks",
         "settings": {
-            "auth": "noauth", 
+            "auth": "noauth",
             "udp": true
         }
-    }, 
+    },
     "inboundDetour": [
         {
-            "port": 1087, 
-            "protocol": "http", 
-            "settings": { }
+            "port": 1087,
+            "protocol": "http",
+            "settings": {}
         }
-    ], 
+    ],
     "outbound": {
-        "protocol": "vmess", 
+        "protocol": "vmess",
         "settings": {
             "vnext": [
                 {
-                    "address": "", 
-                    "port": , 
+                    "address": "",
+                    "port": ,
                     "users": [
                         {
-                            "id": "", 
-                            "alterId": 128, 
+                            "id": "",
+                            "alterId": 128,
                             "security": "aes-128-gcm"
                         }
                     ]
                 }
             ]
-        }, 
+        },
         "mux": {
-            "enabled": true, 
+            "enabled": true,
             "concurrency": 8
-        }, 
+        },
         "streamSettings": {
-            "network": "ws", 
-            "security": "tls", 
+            "network": "ws",
+            "security": "tls",
             "tlsSettings": {
                 "serverName": "",
                 "allowInsecure": true
-            }, 
+            },
             "wsSettings": {
                 "path": ""
             }
         }
-    }, 
+    },
     "outboundDetour": [
         {
-            "protocol": "freedom", 
-            "settings": { }, 
+            "protocol": "freedom",
+            "settings": {},
             "tag": "direct"
         }
     ]

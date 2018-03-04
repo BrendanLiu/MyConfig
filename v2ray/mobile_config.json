@@ -1,84 +1,84 @@
 {
-  "inbound": {
-    "listen": "26.26.26.1",
-    "port": 1080,
-    "protocol": "socks",
-    "settings": {
-      "auth": "noauth",
-      "udp": true
+    "inbound": {
+        "listen": "26.26.26.1",
+        "port": 1080,
+        "protocol": "socks",
+        "settings": {
+            "auth": "noauth",
+            "udp": true
+        },
+        "domainOverride": [
+            "http",
+            "tls"
+        ]
     },
-    "domainOverride": [
-      "http",
-      "tls"
-    ]
-  },
-  "outbound": {
-    "protocol": "vmess",
-    "settings": {
-      "vnext": [
-        {
-          "address": "",
-          "port": ,
-          "users": [
-            {
-              "id": "",
-              "alterId": 128,
-              "security": "chacha20-poly1305"
+    "outbound": {
+        "protocol": "vmess",
+        "settings": {
+            "vnext": [
+                {
+                    "address": "",
+                    "port": ,
+                    "users": [
+                        {
+                            "id": "",
+                            "alterId": 128,
+                            "security": "chacha20-poly1305"
+                        }
+                    ]
+                }
+            ]
+        },
+        "tag": "proxy",
+        "streamSettings": {
+            "network": "ws",
+            "security": "tls",
+            "tlsSettings": {
+                "serverName": "",
+                "allowInsecure": true
+            },
+            "wsSettings": {
+                "path": ""
             }
-          ]
+        },
+        "mux": {
+            "enabled": true,
+            "concurrency": 8
         }
-      ]
     },
-    "tag": "proxy",
-    "streamSettings": {
-      "network": "ws",
-      "security": "tls",
-      "tlsSettings": {
-        "serverName": "",
-        "allowInsecure": true
-      },
-      "wsSettings": {
-        "path": ""
-      }
-    },
-    "mux": {
-      "enabled": true,
-      "concurrency": 8
-    }
-  },
-  "outboundDetour": [
-    {
-      "protocol": "freedom",
-      "settings": {},
-      "tag": "direct"
-    },
-    {
-      "protocol": "blackhole",
-      "settings": {},
-      "tag": "block"
-    }
-  ],
-  "routing": {
-    "strategy": "rules",
-    "settings": {
-      "domainStrategy": "IPIfNonMatch",
-      "rules": [
+    "outboundDetour": [
         {
-          "type": "field",
-          "ip": [
-            "geoip:private"
-          ],
-          "outboundTag": "direct"
+            "protocol": "freedom",
+            "settings": {},
+            "tag": "direct"
         },
         {
-          "type": "chinaip",
-          "outboundTag": "direct"
-        },
-        {
-          "type": "chinasites",
-          "outboundTag": "direct"
+            "protocol": "blackhole",
+            "settings": {},
+            "tag": "block"
         }
-      ]
+    ],
+    "routing": {
+        "strategy": "rules",
+        "settings": {
+            "domainStrategy": "IPIfNonMatch",
+            "rules": [
+                {
+                    "type": "field",
+                    "ip": [
+                        "geoip:private"
+                    ],
+                    "outboundTag": "direct"
+                },
+                {
+                    "type": "chinaip",
+                    "outboundTag": "direct"
+                },
+                {
+                    "type": "chinasites",
+                    "outboundTag": "direct"
+                }
+            ]
+        }
     }
-  }
 }
