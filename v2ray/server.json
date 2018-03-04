@@ -12,7 +12,7 @@
             "clients": [
                 {
                     "id": "", 
-                    "alterId": 64
+                    "alterId": 128
                 }
             ]
         }, 
@@ -27,6 +27,7 @@
         }
     }, 
     "outbound": {
+        "sendThrough": "",
         "protocol": "freedom", 
         "settings": { }
     }, 
@@ -51,6 +52,7 @@
     ], 
     "outboundDetour": [
         {
+            "sendThrough": "",
             "protocol": "blackhole", 
             "settings": { }, 
             "tag": "blocked"
