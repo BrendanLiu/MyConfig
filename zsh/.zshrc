@@ -5,7 +5,7 @@
 export ZSH=$HOME/.oh-my-zsh
 
 # conda
-export PATH="~/miniconda3/bin:$PATH"
+export PATH="/Users/brendan/miniconda3/bin:$PATH"
 
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-zsh is loaded.
@@ -99,11 +99,14 @@ source $ZSH/oh-my-zsh.sh
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
 # brook
-alias brook="source ~/Brook/brook.sh"
+alias brook="source ~/Proxy/Brook/brook.sh"
 alias unbrook="killall brook"
 
 # v2ray
-alias v2ray="nohup ~/V2ray/v2ray > /dev/null 2>&1 &"
+alias v2ray="nohup ~/Proxy/V2ray/v2ray > /dev/null 2>&1 &"
+alias lax="source ~/Proxy/V2ray/shell/la.sh"
+alias hk="source ~/Proxy/V2ray/shell/hk.sh"
+alias tw="source ~/Proxy/V2ray/shell/tw.sh"
 alias unv2ray="killall v2ray"
 
 # proxy
