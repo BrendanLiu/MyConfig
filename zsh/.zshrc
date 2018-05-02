@@ -105,6 +105,7 @@ alias unbrook="killall brook"
 # v2ray
 alias v2ray="nohup ~/Proxy/V2ray/v2ray > /dev/null 2>&1 &"
 alias lax="source ~/Proxy/V2ray/shell/la.sh"
+alias da="source ~/Proxy/V2ray/shell/da.sh"
 alias hk="source ~/Proxy/V2ray/shell/hk.sh"
 alias tw="source ~/Proxy/V2ray/shell/tw.sh"
 alias unv2ray="killall v2ray"
